@@ -1,0 +1,39 @@
+#!/bin/sh -e
+PATH=./bin:$PATH
+
+usage() {
+	>&2 printf "usage: %s url [path]\n" "$(basename "$0")"
+	exit 1
+}
+
+test $# -lt 1 && usage
+
+srcdir=${2:-.}
+sharedir=${MKWSTHEMEDIR:-"$srcdir"/share}
+LANG=${LANG:-en_US.UTF-8}
+
+echo "Fetching images"
+export rurl='https://raw.githubusercontent.com/prologic/ulinux/master/'
+wget -q -P docs/img -O ulinux.logo.png "$rurl"docs/img/ulinux.logo.png
+wget -q -O screenshot-1.png "$rurl"screenshot-1.png
+wget -q -O screenshot-2.png "$rurl"screenshot-2.png
+wget -q -O screenshot-3.png "$rurl"screenshot-3.png
+
+if ! test -f "$srcdir"/index.upphtml
+then
+	>&2 printf "no index.upphtml file found\n"
+	exit 1
+fi
+
+echo "Making s.css"
+pp "$sharedir"/s.uppcss "$1" > s.css
+
+for t in "$srcdir"/*.upphtml
+do
+	echo "Making $(basename "${t%.upphtml}".html)"
+	pp "$sharedir"/l.upphtml "$t" "$1" > \
+		"$(basename "${t%.upphtml}".html)"
+done
+
+echo "Making sitemap.xml"
+pp "$sharedir"/sitemap.uppxml "$1" > sitemap.xml

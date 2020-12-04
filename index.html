@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset=UTF-8>
+	<title>uLinux</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+	<meta name='description' content='🐧a micro (µ)Linux Cloud Native OS designed for high performance,
+minimal overhead and a small footprint.
+' />
+	<meta name='author' content='James Mills' />
+	<meta name='generator' content='Hugo 0.79.0' />
+	<link href='index.xml' rel='alternate' type='application/rss+xml' title='uLinux Feed' />
+	<link rel='stylesheet' href='style.622287a3b4a3864c42ca40adb6d89f0fbce5da77261387e1a9e8a99eb35f2af3.css' />
+	<script defer src='script.9df38729991a6ec08d83b60514e841529cebd5ccc800cf8e1f98fb63e73aaa73.js'></script>
+</head>
+<body>
+<div class='pure-g'>
+	<div class='pure-u-1-24 pure-u-md-5-24'></div>
+	<div class='pure-u-22-24 pure-u-md-14-24'>
+	
+<div class='navigation'>
+	<div class='navigation-header clearfix'>
+		<div class='pure-menu pure-menu-horizontal'>
+			<a class='pure-menu-heading pure-menu-link' href='index.html'>
+				uLinux
+			</a>
+			<ul class='pure-menu-list navigation-header-subtitle pull-end'>
+				<li class='pure-menu-item pure-menu-disabled'>uLinux Cloud Native OS</li>
+			</ul>
+		</div>
+	</div>
+	<div class='navigation-content'>
+		<div class='pure-menu pure-menu-horizontal'>
+			<ul class='pure-menu-list'>
+				<li class='pure-menu-item' title='Documentation'>
+					<a class='pure-menu-link' href='http://199.180.249.14:9000/docs/'>Documentation</a>
+				</li>
+				<li class='pure-menu-item' title='Downloads'>
+					<a class='pure-menu-link' href='/downloads/'>Downloads</a>
+				</li>
+				<li class='pure-menu-item' title='Packages'>
+					<a class='pure-menu-link' href='/pkgs/'>Packages</a>
+				</li>
+				<li class='pure-menu-item' title='Ports'>
+					<a class='pure-menu-link' href='/ports/'>Ports</a>
+				</li>
+				<li class='pure-menu-item' title='All posts'>
+					<a class='pure-menu-link' href='/posts/'>Posts</a>
+				</li>
+				<li class='pure-menu-item' title='About Hugo'>
+					<a class='pure-menu-link' href='/about/index.html'>About</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+	
+		<main aria-role='main'>
+			<header class='homepage-header'>
+				<h1></h1>
+				
+			</header>
+			<div class='homepage-content'>
+
+<p><p align="center">
+  <img src="docs/img/ulinux.logo.png" alt="uLinux" title="uLinux" />
+</p></p>
+<h1>ulinux</h1>
+<p><img src="https://github.com/prologic/ulinux/workflows/Build/badge.svg" alt="Build" />
+<img src="https://github.com/prologic/ulinux/workflows/Packages/badge.svg" alt="Packages" />
+<img src="https://github.com/prologic/ulinux/workflows/Review/badge.svg" alt="Review" /></p>
+<blockquote><p>uLinux (<em>µLinux</em>) is a micro (µ)Linux Cloud Native OS designed for high
+performance, minimal overhead and a small footprint.</p>
+<p>uLinux is container-ready and small enough that it could be used as a sort of "UniKernel"
+for your applications.</p>
+<p>If you care about performance, footprint, security and minimalism like I do
+you'll want to use µLinux for your workloads.</p>
+</blockquote>
+<blockquote><p><strong>NOTE:</strong>: µLinux is <em>NOT</em> a full blown Desktop OS nor will it ever likely be.
+<pre><code>       It is also not ever likely to build your favorite GCC/GLIBC/Clang
+       software as it only ships with a very small C compiler (tcc) and libc (musl).
+       Consider using [Alpine](https://alpinelinux.org/) for a more feature
+       rich system or any other &quot;heavier&quot; / &quot;full featured&quot; distro.
+</code></pre>
+</p>
+</blockquote>
+<h2>Supported Platforms</h2>
+<ul>
+<li><a href="https://www.virtualbox.org/">X] [VirtualBox</a></li>
+<li><a href="https://www.qemu.org/">X] [QEMU/KVM</a></li>
+<li><a href="https://www.proxmox.com/en/proxmox-ve">X] [Proxmox VE</a></li>
+<li><a href="https://vultr.com">X] [Vultr</a></li>
+<li><a href="https://digitalocean.com">X] [DigitalOcean</a></li>
+<li><em>need more? file an issue or submit a PR!</em></li>
+</ul>
+<h2>Features</h2>
+<ul>
+<li>Recent <a href="https://www.kernel.org/">Linux Kernel</a></li>
+<li><a href="#very-lightweight">Very Lightweight</a></li>
+<li>Full Container Support</li>
+<li><a href="https://busybox.net/">Busybox Userland</a></li>
+<li><a href="http://matt.ucc.asn.au/dropbear/dropbear.html">Dropbear SSH Daemon</a></li>
+<li>Hybrid Live ISO</li>
+<li>Installer</li>
+<li><a href="https://cloudinit.readthedocs.io/en/latest/">CloudInit</a></li>
+</ul>
+<h3>Fast Boot</h3>
+<p>uLinux is designed for high performance and small footprint. uLinux is expected
+to boot within ~1s on a modern system. See <a href="#screenshots">Screenshots</a>.</p>
+<h3>Very Lightweight!</h3>
+<p>uLinux will boot on as little as <strong>64MB</strong> of RAM! Yes that's right!</p>
+<p>Other notable attributes:</p>
+<ul>
+<li>~3MB Kernel</li>
+<li>~6MB Root FS (<em>compressed</em>)</li>
+<li>~10MB Hybrid ISO</li>
+<li>~20MB On-Disk Install</li>
+</ul>
+<p>The goal is to stick to these attributes as far as we can! The only way to
+grow your uLinux system once installed is through ports and packages.</p>
+<h3>Full Container Support</h3>
+<p>uLinux supports full containerization and comes shipped with a very small
+lightweight container / sandbox tool called <code>box</code>. See <a href="#box">box</a>.</p>
+<p>Currently supported Container Engines:</p>
+<ul>
+<li><a href="https://www.docker.com">X] [Docker CE</a></li>
+<li><a href="#box">X] [box</a></li>
+<li><em>need more? file an issue or submit a PR! (others may work anyway)</em></li>
+</ul>
+<h3>Toolchain</h3>
+<p>uLinux currently supports building C and Assembly and ships with the following compilers and tools:</p>
+<ul>
+<li><a href="https://bellard.org/tcc/">Tiny C Compiler</a></li>
+<li><a href="https://flatassembler.net/">Flat Assembler</a></li>
+<li><a href="https://www.musl-libc.org/">Musl libC</a></li>
+<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+</ul>
+<p>There is no support for GCC/GLIBC.</p>
+<h3>Docker</h3>
+<p>To use docker you must first install it using ports.</p>
+<pre><code class="language-bash">ports -u
+cd /usr/ports/cgroups-mount
+pkg build
+pkg add
+cd /usr/ports/docker
+pkg build
+pkg add
+svc -r dockerd
+docker ps
+</code></pre>
+<h3>CloudInit / CloudConfig</h3>
+<p>uLinux fully supports configuration via CloudInit/CloudConfig.
+See <a href="#cloudinit">CloudInit</a>.</p>
+<h2>Screenshots</h2>
+<p><img src="screenshot-1.png?raw=true" alt="screenshot-1" title="Boating from the Hybrid Live ISO" />
+<img src="screenshot-2.png?raw=true" alt="screenshot-2" title="After running `setup /dev/sda` to install to disk and booting from disk" />
+<img src="screenshot-3.png?raw=true" alt="screenshot-3" title="Fully booted showing process list and resources used after boot" /></p>
+<h2>Getting Started</h2>
+<h3>Prebuilt Images</h3>
+<p>This repo contains prebuilt images to get you started quickly without having
+to build anything yourself.</p>
+<p>Please see the <a href="https://github.com/prologic/ulinux/releases">Release</a> for the
+latest published versions of:</p>
+<ul>
+<li><code>ulinux.iso</code> -- Hybrid Live ISO with Installer.</li>
+<li><code>kernel.gz</code>  -- The Kernel Image (Linux)</li>
+<li><code>rootfs.gz</code>  -- The RootFS Image (INITRD)</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li>[ ] Add prebuilt Cloud Disk Images.</li>
+</ul>
+<h3>Installing</h3>
+<p>Once booted with either the Hybrid Live ISO or Kernel + RootFS you can install
+uLinux to disk by typing in a shell:</p>
+<pre><code class="language-sh"># setup /dev/sda
+</code></pre>
+<p>Assuming <code>/dev/sda</code> is the device path to the disk you want to install to.</p>
+<p><strong>WARNING:</strong> This will <em>automatically</em> partition, format and install uLinux
+<pre><code>         with no questions asked without hesitation. Please be sure you
+         understand what you are doing.
+</code></pre>
+</p>
+<h3>Building</h3>
+<p>First make sure you have <a href="https://www.docker.com">Docker</a> installed on your
+system as the build uses this extensively to build the OS reliably across
+all platforms consistently.</p>
+<blockquote><p><strong>NOTE</strong>: Docker is not strictly required in order to build uLinux.</p>
+</blockquote>
+<pre><code>        You may also just run the `./main.sh` build script yourself as long
+        as you have installed all required build dependencies. See the
+        [Dockerfile.builder](Dockerfile.builder) for details on what
+        dependencies need to be available for a successful build.
+</code></pre>
+<p>Also make sure you have <a href="https://www.qemu.org/">QEMU</a> installed as this is
+used for testing and booting the OS into a Guest VM.</p>
+<p>Then just run:</p>
+<pre><code class="language-sh">$ make
+</code></pre>
+<h3>Customization</h3>
+<p>You can customize the build by overriding the <code>customize_kernel()</code> and
+<code>customize_rootfs()</code> functions in <code>customize.sh</code>:</p>
+<ul>
+<li><code>customize_kernel()</code> -- This is passed no arguments and the current directory
+<pre><code>                    is the location of the current kernel sources being
+                    built. You can use `config &lt;value&gt; &lt;config&gt;` to
+                    enable/disable Kernel options. e.g: `config m MULTIUSER`.
+</code></pre>
+</li>
+<li><code>customize_rootfs()</code> -- This is passed the path to the rootfs as its first
+<pre><code>                    argument. You may run any series of commands that
+                    add to or remove things from the rootfs.
+</code></pre>
+</li>
+</ul>
+<p>if any of the <code>customize_*</code> functions fail the build will fail.</p>
+<h2>CloudInit</h2>
+<p>uLinux is fully <a href="https://cloudinit.readthedocs.io/en/latest/#">cloud-init</a>
+capable and supports the following cloud-init platforms:</p>
+<ul>
+<li>[X] Amazon EC2</li>
+<li>[X] OpenStack</li>
+<li>[X] Proxmox VE</li>
+<li>[X] CloudDrive</li>
+<li><em>need more? file an issue or submit a PR!</em></li>
+</ul>
+<p>uLinux's cloud-init fully supports a subset of the cloud-config YAML spec
+including:</p>
+<ul>
+<li>Disabling the root account</li>
+<li>Setting a user account password</li>
+<li>Adding ssh keys to a user account</li>
+<li>Managing the hosts file</li>
+</ul>
+<p>In addition there is also full support for running an arbitrary shell script
+as the `user-data.</p>
+<p>There is a sample CloudDrive config in <a href="clouddrive">clouddrive</a> as the top-level
+of the repo which can be customized by editing the <code>user-data</code> script and
+running <code>make clouddrive</code>.</p>
+<h2>Services</h2>
+<p>uLinux comes with its own unique set of service management tools called <code>svc</code>
+and <code>service</code> (<em>which is just a wrapper for <code>svc</code></em>). Services are stored in
+a directory at <code>/bin/svc.d</code> which has the following structure:</p>
+<pre><code class="language-#!sh"># cd /bin/svc.d
+# find .
+.
+./bare.sh
+./avail
+./avail/syslogd
+./avail/cloudinit
+./avail/ntpd
+./avail/mdev
+./avail/dnsd
+./avail/tfptd
+./avail/crond
+./avail/rngd
+./avail/net
+./avail/hwclock
+./avail/ftpd
+./avail/telnetd
+./avail/httpd
+./avail/dropbear
+./avail/udhcpd
+./run
+./run/syslogd
+./run/cloudinit
+./run/mdev
+./run/crond
+./run/net
+./run/hwclock
+./run/dropbear
+#
+</code></pre>
+<p>Each file listed in <code>/bin/svc.d/avail</code> can either be:</p>
+<ul>
+<li>a shell script or binary that responds to <code>-k</code> (<em>kill</em>) or <code>-s</code> (<em>start</em>).</li>
+<li>An empty file or "bare" service denoting no special requirements and will
+be managed by the <code>bare.sh</code> wrapper. Useful for daemons that need no special
+requirements and only basic configuration.</li>
+</ul>
+<p>Configuration for services is expected to be stored in <code>/etc/default/&lt;service&gt;</code>
+which contains files that are sourced and in shell format. The <code>bare.sh</code>
+wrapper looks here by default for configuration for "bare" services. Other
+services <em>may</em> also store and look for their configuration here but this is
+not mandatory.</p>
+<h3>svc</h3>
+<p>This is the primary tool for managing services:</p>
+<ul>
+<li><code>svc -a</code>           -- List available services that can be started or enabled.</li>
+<li><code>svc -a &lt;service&gt;</code> -- Activates the given <code>&lt;service&gt;</code>.</li>
+<li><code>svc -c</code>           -- Creates the directory structure for <code>/bin/svc.d</code> (<em>done by default</em>).</li>
+<li><code>svc -d &lt;service&gt;</code> -- Deactivates the given <code>&lt;service&gt;</code>.</li>
+</ul>
+<p><code> </code>svc -l<code>          -- Lists all currently activated services.
+-</code>svc -k <service>` -- Kills the given <code>&lt;service&gt;</code>.
+<ul>
+<li><code>svc -r &lt;service&gt;</code> -- Restarts the given <code>&lt;service&gt;</code>.</li>
+<li><code>svc -s &lt;service&gt;</code> -- Starts the given <code>&lt;service&gt;</code>.</li>
+</ul>
+</p>
+<h3>service</h3>
+<p>This is simply a wrapper for <code>svc</code> and supports the following three commands:</p>
+<ul>
+<li><code>service start &lt;service&gt;</code></li>
+<li><code>service stop &lt;service&gt;</code></li>
+<li><code>service restart &lt;service&gt;</code></li>
+</ul>
+<h2>Packaging and Ports</h2>
+<p>If you are at all familiar with <a href="https://crux.nu">CRUX</a>
+or <a href="https://www.archlinux.org/">ArchLinux</a> then the packages and ports and
+tools provided by uLinux will be somewhat familiar to you.</p>
+<p>Packages in uLinux are basic Tarball(s) of a prebuilt piece of software
+with one minor notable exception. It also includes state of the package
+database which is used to update the uLinux package database on your system
+(<em>each package stores its installed state in separate directories in <code>/var/db/pkg</code></em>).</p>
+<p>Ports in uLinux are very similar to that of the <code>Pkgfile</code> format of CRUX with
+only one notable exception. They only support POSIX Shell as that is the only
+type of shell that ships with uLinux. Therefore you cannot use an array for
+<code>source=</code> it must be a space or newline delimited string.</p>
+<p>Configuration of <code>pkg</code> and <code>ports</code> are stored in <code>/etc/pkg.conf</code> and here
+you can customize the behavior of the packaging and ports tools. The most
+notable configuration options currently are:</p>
+<ul>
+<li><code>URL</code>          -- The Base URL of a web resource to synchronize a collection of ports.</li>
+<li><code>PKG_PORTSDIR</code> -- The path to the primary ports collection on disk.</li>
+</ul>
+<p><strong>NOTE:</strong> Currently <code>ports</code> does not support multiple collections_)</p>
+<p>What following is a brief description of the tools available and their usage.</p>
+<h3>pkg</h3>
+<p>This is the primary tool for managing packages installed on a uLinux system.</p>
+<p>See the help for details on usage:</p>
+<pre><code class="language-#!sh"># pkg
+=&gt; pkg [a]dd pkg.tar.gz
+=&gt; pkg [b]uild
+=&gt; pkg [c]hecksum
+=&gt; pkg [d]el pkg
+=&gt; pkg [l]ist [pkg]
+</code></pre>
+<h3>ports</h3>
+<p>This tool updates and synchronizes the ports collection on disk depending
+on the configuration of <code>PKG_PORTSDIR</code> with a remote collection specified
+by <code>URL</code>. The remote collection <strong>must</strong> contain a collection of ports
+as well as the <code>index</code> file generated by <code>repogen</code> and each file must be
+retrievable with by <code>wget</code>.</p>
+<h3>Other Utilities</h3>
+<p>There are a number of other utilities that live outside (<em>currently</em>) of
+<code>pkg</code> and <code>port</code>, these are:</p>
+<ul>
+<li><code>repogen</code>   -- Creates the <code>index</code> for the current directory of ports suitable
+<pre><code>           for hosting by a basic web server. This `index` is the first
+           resource that `ports` looks for in order to synchronize ports.
+</code></pre>
+</li>
+<li><code>prtcreate</code> -- Creates a blank basic skeleton of a port and its <code>Pkgfile</code>
+<pre><code>           in `/usr/ports`.
+</code></pre>
+</li>
+</ul>
+<h2>Utilities</h2>
+<h3>box</h3>
+<p>uLinux comes shipped with a simple Container / Sandbox tool called `box.
+It has a familiar user experience if you are used to Docker (<em>but nowhere near
+as feature rich of course!</em>).</p>
+<p>Simply run <code>box</code> to get a shell in an isolated environment that is fully
+isolated from your system's mounts, namespace, pid, devices, etc. The only
+part that is shared from the host is the host's networking.</p>
+<pre><code class="language-#!sh"># box
+KhJpKC / # ps aux
+PID   USER     TIME  COMMAND
+    1 root      0:00 /bin/sh
+    6 root      0:00 ps aux
+</code></pre>
+<p>Or run <code>box &lt;command&gt;</code> like so:</p>
+<pre><code class="language-#!sh"># box echo 'I am pid $$'
+I am pid 1
+</code></pre>
+<h3>enter-chroot</h3>
+<p>Mostly useful as a way to debug and enter the environment of an installed
+system where uLinux is used as a "rescue" system.</p>
+<pre><code class="language-#!sh">$ enter-chroot /path/to/rootfs
+</code></pre>
+<p><strong>NOTE</strong>: You must have already mounted the root file system at the desired path
+<pre><code>      before running `enter-chroot /path/to/rootfs`.
+</code></pre>
+</p>
+<h2>Testing</h2>
+<p>Just run:</p>
+<pre><code class="language-sh">$ make test
+</code></pre>
+<p>This uses <a href="https://www.qemu.org/">QEMU</a> and on macOS X we use the
+<a href="https://github.com/nanovms/nanos">nanos</a> <a href="https://brew.sh/">Homrebrew</a>
+formulae of QEMU that supports hardware accelaration:</p>
+<pre><code class="language-#!console">brew tap nanovms/homebrew-qemu
+brew install nanovms/homebrew-qemu/qemu
+</code></pre>
+<p>The OS comes pre-shipped with Dropbear (<em>SSH Daemon</em>) as well as a Busybox
+Userland. The test script (<code>test.sh</code>) also uses QEMU and sets up a User mode
+network which forwards port <code>2222</code> to the guest VM for SSH access.</p>
+<p>You can access the guest with:</p>
+<pre><code class="language-sh">$ ssh -p 2222 root@localhost
+</code></pre>
+<h1>License</h1>
+<p>uLinux is licensed under the terms of the <a href="LICENSE">MIT License</a>.</p>
+
+			</div>
+			<div>
+				
+						
+				
+			</div>
+		</main>
+
+	<div class='footer'>
+	<div class='pure-menu pure-menu-horizontal'>
+		<ul class='pure-menu-list'>
+			<li class='pure-menu-item' title='uLinux on Github'>
+				<a class='pure-menu-link' href='https://github.com/prologic/ulinux'>GitHub</a>
+			</li>
+			<li class='pure-menu-item' title='Packages'>
+				<a class='pure-menu-link' href='/pkgs/'>Packages</a>
+			</li>
+			<li class='pure-menu-item' title='Ports'>
+				<a class='pure-menu-link' href='/ports/'>Ports</a>
+			</li>
+			<li class='pure-menu-item' title='RSS Feed'>
+				<a href='index.xml' class='pure-menu-link'>RSS</a>
+			</li>
+			<li class='pure-menu-item fix-cursor-pointer' title='Go to top'>
+				<a class='pure-menu-link' id='btn-gototop'>
+					<span class='fix-placement-up'>&#x21e7;&#xfe0e;</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class='pure-menu pure-menu-horizontal'>
+		<ul class='pure-menu-list'>
+			<li class='pure-menu-item pure-menu-disabled'>
+				&copy; 2020 &mdash; James Mills — All rights reserved.
+			</li>
+		</ul>
+	</div>
+</div>
+
+	</div>
+	<div class='pure-u-1-24 pure-u-md-5-24'></div>
+</div>
+</body>
+</html>

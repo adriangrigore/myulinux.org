@@ -1,0 +1,3 @@
+#!
+wget -q -O - "$rurl"README.md | smu
+#!
